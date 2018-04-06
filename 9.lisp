@@ -1,1 +1,7 @@
-
+(defun NUMBER1(x num &OPTIONAL(N 0)) (cond ((NULL x) 0) 
+                                         ((EQL num (car x)) (+ N 1)) 
+                                         ( T (NUMBER1 (cdr x) num (+ N 1))))) 
+(defun MAKE-CAR-CDR(x k Q &OPTIONAL(n (NUMBER1 x k))) (COND ((= n 0) nil) 
+                                                            ((= n 1) (cons 'CAR (cons Q nil))) 
+                                                            (T (MAKE-CAR-CDR x k (cons 'CDR (cons Q nil)) (- n 1))))) 
+(print (MAKE-CAR-CDR '(A B C) 'B 'Q))

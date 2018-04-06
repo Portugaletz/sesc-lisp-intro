@@ -1,1 +1,6 @@
-
+(defun SORTONE (x) (cond ((NULL x) (nil) ) 
+                        ((NULL (cdr x)) (cons (car x) ())) 
+                        ((> (car x) (cadr x)) (CONS (CADR x)(SORTONE (cons (car x) (cddr x))))) 
+                        (T (CONS (car x) (SORTONE (cdr x)))))) 
+(defun SORT1(x &OPTIONAL(N 0)) (COND ((< N (LENGTH x)) (SORT1 (TOSORT x) (+ N 1))) (T x))) 
+(PRINT (SORT1 '(5 4 3 2 1)))

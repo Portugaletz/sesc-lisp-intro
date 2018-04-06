@@ -1,1 +1,10 @@
-
+(defun APPEND1 (x y) (cond (x (cons (car x) (APPEND1 (cdr x) y))) 
+                           (y (cons (car y) (APPEND1 x (cdr y)))) 
+                           (T ())))
+(defun SORTONE (x) (cond ((NULL x) (nil) ) 
+                        ((NULL (cdr x)) (cons (car x) ())) 
+                        ((> (car x) (cadr x)) (CONS (CADR x)(SORTONE (cons (car x) (cddr x))))) 
+                        (T (CONS (car x) (SORTONE (cdr x)))))) 
+(defun SORT1(x &OPTIONAL(N 0)) (COND ((< N (LENGTH x)) (SORT1 (SORTONE x) (+ N 1))) (T x))) 
+(defun MERGE1(L1 L2) (SORT1 (APPEND1 L1 L2 ))) 
+(PRINT (MERGE1 '(1 3 5) '(2 4)))
